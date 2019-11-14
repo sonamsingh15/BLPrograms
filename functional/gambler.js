@@ -1,9 +1,14 @@
 const Utility=require('../utility/utility');
-var stake,trail,goal;
-console.log("Enter the stake");
-var stake=Utility.inputRead();
-console.log("Enter the trail:");
-var trail=Utility.inputRead();
+var cash,time,goal;
+console.log("Enter the cash");
+var cash=Utility.inputRead();
+console.log("Enter the time:");
+var time=Utility.inputRead();
 console.log("Enter the goal:");
 var goal=Utility.inputRead();
-Utility.Gambler(stake,trail,goal);
+if(cash==goal){
+    Utility.Gambler(cash,time,goal);
+}
+else{
+    console.log('should be less than goal')
+}

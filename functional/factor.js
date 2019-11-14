@@ -1,5 +1,5 @@
 const Utility=require('../utility/utility');
-do {
+/*do {
     console.log("Enter the positive number:");
     var num=Utility.inputRead();
     
@@ -10,12 +10,13 @@ function checknumber(num)
 {
   if(num<0){
       console.log("number should be positive:");
+      Utility.inputRead();
 
       return true;
   }else{
-     console.log("please enter the number:")
-     Utility.inputRead();
       return false;
   }
-}
+}*/
+var num=Utility.inputRead();
+console.log(Utility.factor(num));
     

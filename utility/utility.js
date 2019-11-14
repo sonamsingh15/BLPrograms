@@ -13,103 +13,162 @@ module.exports = {
     },
     //-----------------------leap Year--------------------------------------------/
     leapYear(year) {
-        if ((year % 4 == 0 && year != 100) || year % 400 == 0) {
-            console.log(year + "leap year")
-        }
-        else {
-            console.log(year + "not leap year")
+        try {
+            let format = /[^0-9]/;//give format to given number
+
+            if (format.test(year || year === undefined || year === null)) {
+                //check number is integer or not
+                throw 'invalid input';//if number is not integer trough expction
+
+            } else {
+                if ((year % 4 == 0 && year != 100) && year % 400 == 0) {
+                    console.log(year + "leap year")
+                }
+                else {
+                    console.log(year + "not leap year")
+                } return true;
+            }
+        } catch (
+        error
+        ) {
+            return error;
         }
     },
     //--------------------Flipcoin-----------------------------------------/
     flipcoin(n) {
-        var head = 0, tail = 0;
-        for (var i = 0; i < n; i++) {
-            if (Math.random() < 0.5) {
-                tail++;
+        try {
+            var head = 0, tail = 0;//initialization value of head and tail
+            let format = /[^0-9]/;//give format to the given number
+
+            if (format.test(n || n === undefined || n === null)) {
+                //check if number is an integer or not 
+                throw "invalid input";//if number is not integer throgh excption
             } else {
-                head++;
+                //no between 0-9
+                for (var i = 0; i < n; i++) {
+                    if (Math.random() > 0.5) {
+                        //randomly take value between 0 to 1 and check num is greater than 0.5
+                        // console head
+                        head++;
+                    } else {
+                        tail++;
+                    }
+                }
             }
+            console.log("head :" + head);
+            console.log("tail:" + tail);
+            var total = head + tail;//add total vale of head
+
+            var ph = (100 * head) / total;//calutae percentage of head
+            console.log("percentage of head: " + ph);
+            var pt = (100 * tail) / total;//calculate percentage of tail
+            console.log("percentage of tail: " + pt);
+            return true;
+        } catch (
+        error //value is not integer than it will caught by catch block
+        ) {
+            return error;
         }
-        var ph = (head / n) * 100;
-        console.log("percentage of head: " + ph);
-        var pt = (tail / n) * 100;
-        console.log("percentage of tail: " + pt);
     },
     //-----------------------Harmonic number---------------------------------------//
     harmonic(num) {
-
-        var har = 0;
-        for (var i = 1; i <= num; i++) {
-            har = har + (1.0 / i);
+        try {
+            var h = isNaN(num)
+            // console.log(h);
+            if (isNaN(num)) {
+                throw 'invalid input ! please inter valid input:';
+            } else {
+                // console.log(h);
+                var har = 0;
+                for (var i = 1; i <= num; i++) {
+                    har = har + (1.0 / i);
+                }
+                //console.log(har)
+                return har;
+            }
         }
-        console.log(har)
+        catch (e) {
+            return e;
+        }
+
     },
     //----------------------------- prime factor------------------------------------------//
     factor(num) {
-        for (var i = 2; i <= num; i++) {
-            while (num % i == 0) {
-                console.log(i + ' ')
-                num = num / i;
+        try {
+            var h = isNaN(num)
+            if (isNaN(num)) {
+                throw error;//"invalid input ! please inter valid input:";
+            } else {
+
+                for (var i = 2; i < num; i++) {
+                    while (num % i == 0) {
+                        console.log(i + ' ')
+                        num = num / i;
+                    }
+                }
+            }
+            if (num == 2) {
+                console.log(num)
             }
         }
-        if (num == 2) {
-            console.log(num)
+        catch (error) {
+            console.log("Enter the valid number")
+            this.inputRead()
+            this.factor()
         }
-    },
-    //---------------------------windchill------------------------------------------------
-    wind(t, v) {
-        var temp1 = 0.6215 * t;
-        var temp2 = 0.4275 * t;
-        var temp3 = Math.pow(v, 0.16);
-        var temp4 = temp - 35.75;
-        var temp = 35.74 + temp1 + temp4 * temp3;
+
     },
     //-----------------------Array2D-----------------------------------------------
-
-    Array(row, col) {
+    array(row, col) {
 
         var arr = [];
         // Creates all lines:
         for (var i = 0; i < row; i++) {
-
-            // Creates an empty line
-            arr.push([]);
-
-            // Adds cols to the empty line:
-            arr[i].push(new Array(col));
+            arr[i]=[];
 
             for (var j = 0; j < col; j++) {
-                // Initializes:
-                arr[i][j] = Utility.inputRead();
+                console.log("Enter the element")
+                var element =this.input()
+                arr[i][j]=element+"";
             }
         }
-        return arr;
-        console.log("2D Array:", Array(row, col))
+        console.log(arr)
     },
     //---------------------Gambler Number----------------------------//
-    Gambler(stake, trail, goal) {
+    Gambler(cash, time, goal) {
         //var stake,trail,goal;
-        var win = 0;
-        var bet = 0;
-        var cash = stake;
-        for (var t = 0; t <= trail; t++) {
+        var wins = 0;
+        var loss = 0;
+        for (var i = 0; i <= time; i++) {
+            //compute
             while (cash > 0 && cash < goal) {
-                bet++;
+
                 if (Math.random() < 0.5) {
+                    //win add1
                     cash++;
-                } else {
+                    //time--;
+                    wins++;
+                }
+                else {
+                    //loss sub1
+                    loss++;
                     cash--;
+                    //time--;
                 }
             }
-            if (cash === goal) {
-                win++;
-            }
+
+
+
+            //total win
+            var total = wins + loss
+            var winingpercentage = (wins / total) * 100;
+            var losspercentage = (loss / total) * 100;
         }
-        var avg = (1.0 * bet) / trail;
-        var p = 100.0 * win / trail;
-        console.log(win + "win is =" + trail);
-        console.log(" percentage of game won = " + p)
-        console.log("Avg# bet=" + avg);
+        //console to print 
+        console.log("wins percentage:" + winingpercentage)
+        console.log("loss percentage:" + losspercentage)
+
+
 
 
     },
@@ -131,7 +190,7 @@ module.exports = {
 
                     if (arr[i] + arr[j] + arr[k] == sum) {
                         count = count + 1;
-                        console.log("Triplet is: ", arr[i], arr[j] , arr[k])
+                        console.log("Triplet is: ", arr[i], arr[j], arr[k])
                     }
 
                 }
@@ -140,12 +199,86 @@ module.exports = {
         }
         return count
     },
- //-------------------
+    //-------------------powerof2---------------------------------------------
+    power(n) {
+        var i = 0
+        power = 1;
+        //compute
+        while (i <= n) {
+            console.log("2^" + i + "=" + power)
+            //formula of power
+            power = power * 2
+            i++;
+        }
+    },
+    //-------------------------String Replace-----------------------------------------
+    Stringreplace(name) {
+        var string = "Hi username ,how are you"
+        console.log(string.replace("username", name))
+
+    },
+    //__________________________________________________________________________________//
+
+    //__-__________________-Algorithm program_____________________________________________//_
+
+    //-----anagram program---/
+
+    anagram(str1, str2) {
+        var str1 = this.reduceCodeForAnagram(str1);
+        var str1 = this.reduceCodeForAnagram(str2);
+
+        if (str1.length == str2.length) {
+
+            if (sort.equal(str1, str2)) {
+                console.log()
+
+            }
+
+            console.log(spilt(), sort(), join())
+        }
+    },
+    //------------------PERMUTATION --------------------------------------//
+    permute(str) {
+        var arr = str.split("");
+        console.log(arr);
+        var arr1 = [];
+        const a = str.length;
+        for (var i = 0; i < arr.length; i++) {
+            var value = "";
+            for (var j = i; j < a; j++) {
+                value = value + arr[j];
+                var b = str.length - value.length;
+            }
+            if (arr1.length < arr.length) {
+                value = value + str.substring(0, b);
+
+            }
+            if (!arr1.includes(value)) {
+                arr1.push(value);
+
+            }
+
+        }
+        console.log(arr1)
+    },
+    //---------------------------PRIME NUMBER-----------------------------------------
+  
+  prime(num){
+    for(var i = 2; i < 100; i++)
+    {
+        var prime = [];
+        for(var j = 0; j <= i; j++)
+        {
+            var p = i % j;
+        }
+        if(p != 0) prime.push(i);
+            
+    }
+
+    for(var k = 0; k < prime.length; k++)
+    {
     
-
-
-
+    }
 }
 
-
-
+}
