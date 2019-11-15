@@ -37,7 +37,7 @@ module.exports = {
     //--------------------Flipcoin-----------------------------------------/
     flipcoin(n) {
         try {
-            var head = 0, tail = 0;//initialization value of head and tail
+            var head = 0, tail = 0;
             let format = /[^0-9]/;//give format to the given number
 
             if (format.test(n || n === undefined || n === null)) {
@@ -64,40 +64,44 @@ module.exports = {
             var pt = (100 * tail) / total;//calculate percentage of tail
             console.log("percentage of tail: " + pt);
             return true;
-        } catch (
-        error //value is not integer than it will caught by catch block
-        ) {
+        } catch (error)//value is not integer than it will caught by catch block ) {
+        {
             return error;
         }
     },
     //-----------------------Harmonic number---------------------------------------//
     harmonic(num) {
         try {
-            var h = isNaN(num)
-            // console.log(h);
-            if (isNaN(num)) {
-                throw 'invalid input ! please inter valid input:';
+            let format = /[^0-9]/;//give format to the given number
+
+            if (format.test(num || num === undefined || num === null)) {
+                //check if number is an integer or not 
+                throw "invalid input,please enter the vaild input";//if number is not 
+
             } else {
-                // console.log(h);
                 var har = 0;
                 for (var i = 1; i <= num; i++) {
                     har = har + (1.0 / i);
                 }
-                //console.log(har)
-                return har;
+                console.log(har)
+                return true;
             }
         }
-        catch (e) {
-            return e;
+        catch (error) {
+            return error;
         }
 
     },
     //----------------------------- prime factor------------------------------------------//
     factor(num) {
+
         try {
-            var h = isNaN(num)
-            if (isNaN(num)) {
-                throw error;//"invalid input ! please inter valid input:";
+            let format = /[^0-9]/;//give format to the given number
+
+            if (format.test(num || num === undefined || num === null)) {
+                //check if number is an integer or not 
+                throw "invalid input,please enter the vaild input";//if number is not 
+
             } else {
 
                 for (var i = 2; i < num; i++) {
@@ -109,12 +113,11 @@ module.exports = {
             }
             if (num == 2) {
                 console.log(num)
+                return true;
             }
         }
         catch (error) {
-            console.log("Enter the valid number")
-            this.inputRead()
-            this.factor()
+            return error;
         }
 
     },
@@ -124,52 +127,44 @@ module.exports = {
         var arr = [];
         // Creates all lines:
         for (var i = 0; i < row; i++) {
-            arr[i]=[];
+            arr[i] = [];
 
             for (var j = 0; j < col; j++) {
                 console.log("Enter the element")
-                var element =this.input()
-                arr[i][j]=element+"";
+                var element = readline.question("Enter the value:")
+                arr[i][j] = element + "";
             }
         }
-        console.log(arr)
+
+        console.log(arr.join())
     },
     //---------------------Gambler Number----------------------------//
-    Gambler(cash, time, goal) {
-        //var stake,trail,goal;
+     gamble(times, stack, goal) {
+        var bets = 0;
         var wins = 0;
-        var loss = 0;
-        for (var i = 0; i <= time; i++) {
-            //compute
+
+        for (var i = 0; i < times; i++) {
+            var cash = stack;
             while (cash > 0 && cash < goal) {
-
-                if (Math.random() < 0.5) {
-                    //win add1
+                bets++;
+                if (Math.random() > 0.5)
                     cash++;
-                    //time--;
-                    wins++;
-                }
-                else {
-                    //loss sub1
-                    loss++;
+                else
                     cash--;
-                    //time--;
-                }
             }
-
-
-
-            //total win
-            var total = wins + loss
-            var winingpercentage = (wins / total) * 100;
-            var losspercentage = (loss / total) * 100;
+            if (cash == goal){
+                wins++;
+            }   
         }
-        //console to print 
-        console.log("wins percentage:" + winingpercentage)
-        console.log("loss percentage:" + losspercentage)
+        console.log((wins + " wins out of " + times));
 
+        console.log("wins percentage is " + (wins / times) * 100);
 
+        console.log("loss percentage is " + (times - wins) / times * 100);
 
+        console.log("Total bets in " + times + " games :" + bets);
+
+        return wins;
 
     },
     //------------Triplet Number----------------------------------------------------//
@@ -223,19 +218,21 @@ module.exports = {
 
     //-----anagram program---/
 
-    anagram(str1, str2) {
-        var str1 = this.reduceCodeForAnagram(str1);
-        var str1 = this.reduceCodeForAnagram(str2);
-
-        if (str1.length == str2.length) {
-
-            if (sort.equal(str1, str2)) {
-                console.log()
-
-            }
-
-            console.log(spilt(), sort(), join())
+    anagram(string1, string2) 
+    {
+         if(string1.length===string2.length){
+        var str1=string1.toLowerCase().split('').sort('').join('');
+        var str2=string2.toLowerCase().split('').sort('').join('');
+        if(str1===str2)
+        {
+            console.log("This is angram");
         }
+        }else{
+            console.log("this is not anagram");
+        }
+    
+
+        
     },
     //------------------PERMUTATION --------------------------------------//
     permute(str) {
@@ -262,23 +259,86 @@ module.exports = {
         console.log(arr1)
     },
     //---------------------------PRIME NUMBER-----------------------------------------
-  
-  prime(num){
-    for(var i = 2; i < 100; i++)
-    {
-        var prime = [];
-        for(var j = 0; j <= i; j++)
-        {
-            var p = i % j;
+
+    prime(num) {
+
+        try {
+            let format = /[^0-9]/;//give format to the given number
+
+            if (format.test(num || num === undefined || num === null)) {
+                //check if number is an integer or not 
+                throw "invalid input,please enter the vaild input";//if number is not 
+
+            }else{
+
+
+                var flag = false;
+
+                for (i = 2; i <= num; i++) {
+                    if(i==2){
+                        console.log(i)
+                    }
+                    for (j = 2; j < i; j++) {
+                        if (i % j === 0 &&  j!== i) {
+                            flag = false;
+                            break;
+                        }
+                        else {
+                            flag = true;
+                        }
+                    }
+                    if (flag) {
+                        console.log(i);
+                        
+                    }
+                }
+                return true;
+            }
         }
-        if(p != 0) prime.push(i);
-            
-    }
+        catch (error) {
+            return error;
+        }
 
-    for(var k = 0; k < prime.length; k++)
-    {
+    },
+    //------------------------Bubble Sort------------------------------------
+
+ bubbleSort(a) {
+    do {
+        var swapped = false;
+        for (var i=0; i < a.length-1; i++) {
+            if (a[i] > a[i+1]) {
+                var temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    console.log(a);
+},
+//-------------------------Binarysearch program----------------------------------------
+ binarySearch(arr,string) {
     
+    var start= 0;
+    var end=arr.length-1;
+    while (start <= end) {
+        var middle=start+(end-1)/2;
+        var result=string.toCompare(arr[middle]);
+        if(end===0){
+            return middle;
+         }
+         if(end>0){
+             start=midlle+1;
+         }else{
+             end=middle-1;
+         }
+         return-1;
     }
-}
-
+    if(result === -1){
+        console.log("Element is found")
+    }
+    else{
+        console.log("Element is not found")
+    }
+ }
 }
