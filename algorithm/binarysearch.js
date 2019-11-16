@@ -1,12 +1,17 @@
 
-const Utility=require('../utility/utility');
-var arr=["d","t","P","C","S","Y"]
+const Utility = require('../utility/utility');
+
+
+
+//Utility.binarySearch(arr,x)
+let arr = ["sunday", "monday", "tuesday","april","july"];
 console.log(arr)
-console.log("Enter the element to search");
+console.log("enter the element to search:")
+var x = Utility.inputRead();
+//let x = 0; 
+//console.log(x)
 
-
-
-var string=Utility.inputRead();
-//var string2=Utiltiy.inputRead();
-//Utility.binarySearch(start,end,middle) 
-Utility.binarySearch(arr,string)
+if (Utility.binarySearch(arr, x)) {
+    console.log("Element found");
+}
+else { console.log("Element not found") }
