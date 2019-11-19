@@ -1,21 +1,22 @@
+
+/*****************************************************************************
+*Execution : 1. default node cmd> node leapYear.js
+* Purpose: check the year is divded by 4,then  year is leapyear or  not .
+* @file : leapYear.js
+* @overview : if the year is leap than print leap year otherwise not leap year.
+* @author SONAM SINGH
+* @version node v8.10.0 npm 3.5.2
+* @since date 14/11/19
+*****************************************************************************/
+
+function leapYear()
+{
 const Utility=require('../utility/utility');
 
 
-//do{
-   var year =Utility.inputRead();
-//}while(checkLength(year));
+
+   var year =Utility.inputRead()
 Utility.leapYear(year);
-//function checkLength(year)
-//{
+}leapYear();
 
-  //  if(year.length<4 || year.length>4){
-    //    console.log("year should be 4 digit number..");
-        
-      //  return true;
-
-    //}else{
-      //  return false;
-
-    //}
-
-//}
+module.export=leapYear();

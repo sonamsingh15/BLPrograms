@@ -1,3 +1,13 @@
+/*****************************************************************************
+*Execution : 1. default node cmd> node harmonic.js
+* Purpose: Print the per.
+* @file : harmonic.js
+* @overview : 
+* @author SONAM SINGH
+* @version node v8.10.0 npm 3.5.2
+* @since date 15/11/19
+*****************************************************************************/
+
 function harmonic(){
 const Utility=require('../utility/utility');
 var num=Utility.inputRead();

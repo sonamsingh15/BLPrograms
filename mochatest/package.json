@@ -1,0 +1,11 @@
+{
+  "name": "mochatest",
+  "version": "1.0.0",
+  "description": "test app",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "author": "",
+  "license": "ISC"
+}
