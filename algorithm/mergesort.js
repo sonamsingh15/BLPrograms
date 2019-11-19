@@ -8,13 +8,9 @@
 * @since date 14/11/19
 *****************************************************************************/
 const Utility=require('../utility/utility')
-
 console.log("unsorted array ")
 var unsortedArr = ['india','state','people','culture','singing','dancinig']
 console.log(unsortedArr)
-
- console.log( );
-
-
- console.log(' sorted array!')
- console.log(Utility.mergesort(unsortedArr));
+console.log( );
+console.log(' sorted array!')
+console.log(Utility.mergesort(unsortedArr));

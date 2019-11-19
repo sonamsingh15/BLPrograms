@@ -11,9 +11,10 @@
 function flipcoin(){
 const Utility=require('../utility/utility');
 
+console.log("enter input ");
 
 var n=Utility.inputRead();
 
 var result=Utility.flipcoin(n);
-}
+}flipcoin()
 module.exports=flipcoin();

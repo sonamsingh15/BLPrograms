@@ -12,11 +12,8 @@
 function leapYear()
 {
 const Utility=require('../utility/utility');
-
-
-
-   var year =Utility.inputRead()
+console.log("enter year")
+var year =Utility.inputRead()
 Utility.leapYear(year);
 }leapYear();
-
 module.export=leapYear();

@@ -8,12 +8,14 @@
 * @since date 15/11/19
 *****************************************************************************/
 
-function harmonic(){
+function harmonic()
+{
 const Utility=require('../utility/utility');
+console.log("enter number")
+
 var num=Utility.inputRead();
-
-
 //Utility.harmonic(num);
 console.log(Utility.harmonic(num));
 }
+harmonic()
 module.exports=harmonic()

@@ -8,19 +8,19 @@
 * @version node v8.10.0 npm 3.5.2
 * @since date 14/11/19
 *****************************************************************************/
+function binarySearch()
+{
 const Utility = require('../utility/utility');
 
-
-
-//Utility.binarySearch(arr,x)
 let arr = ["aa", "bb", "cc","dd","ee"];
 console.log(arr)
 console.log("enter the element to search:")
 var x = Utility.inputRead();
-//let x = 0; 
-//console.log(x)
+
 
 if (Utility.binarySearch(arr, x)) {
     console.log("Element found");
 }
 else { console.log("Element not found") }
+}binarySearch()
+module.exports=binarySearch();

@@ -7,7 +7,7 @@
 * @version node v8.10.0 npm 3.5.2
 * @since date 15/11/19
 *****************************************************************************/
-
+function gamble(){
 const Utility=require('../utility/utility');
 
 
@@ -22,3 +22,5 @@ console.log("'Enter the times to gamble:")
 var times = Utility.inputRead();
 
 Utility.gamble(times, stack, goal) 
+}
+module.exports=gamble();

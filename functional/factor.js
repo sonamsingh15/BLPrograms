@@ -9,6 +9,8 @@
 *****************************************************************************/
 
 const Utility=require('../utility/utility');
+console.log("inter number")
 var num=Utility.inputRead();
 console.log(Utility.factor(num));
-    
+
+  

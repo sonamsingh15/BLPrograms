@@ -8,30 +8,30 @@ module.exports = {
     //*--------------------Function of reading input-----------------------------*/ 
 
     inputRead() {
-        let input = readline.question("enter input:");//get the value from user
+        let input = readline.question("");//get the value from user
         return input;
     },
     //-----------------------leap Year--------------------------------------------/
     leapYear(year) {
-         try {
-             let format = /[^0-9]/;//give format to given number
+        try {
+            let format = /[^0-9]/;//give format to given number
 
-             if (format.test(year || year === undefined || year === null)) {
-                 //check number is integer or not
-                 throw 'invalid input';//if number is not integer trough expction
+            if (format.test(year || year === undefined || year === null)) {
+                //check number is integer or not
+                throw 'invalid input';//if number is not integer trough expction
 
-             } else {
-                if (year % 400 == 0 ||( year % 4 == 0 && year % 100 != 0)) {
-                    console.log(year +  "leap year ")
+            } else {
+                if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+                    console.log(year + "leap year ")
                 }
                 else {
-                    console.log(year +  " not leap year ")
+                    console.log(year + " not leap year ")
                 } return true;
             }
-        }catch (error) {
+        } catch (error) {
             console.log("invalid input")
-             return error;
-         }
+            return error;
+        }
     },
     //--------------------Flipcoin-----------------------------------------/
     flipcoin(n) {
@@ -64,8 +64,8 @@ module.exports = {
             var pt = (100 * tail) / total;//calculate percentage of tail
             console.log("percentage of tail: " + pt);
             return true;
-        } catch (error)//value is not integer than it will caught by catch block ) {
-        {
+        } catch (error) {
+            console.log("invalid input")
             return error;
         }
     },
@@ -125,91 +125,78 @@ module.exports = {
     },
     //-----------------------Array2D-----------------------------------------------
     array(row, col) {
-    try{
+        var format = /[0-9]/;
+        if (format.test(row) && format.test(col)) {
+            var arr = [];
+            // Creates all lines:
+            for (var i = 0; i < row; i++) {
+                arr[i] = new Array(row);
 
-        var format =/[^0-9]/;
-        if(format.test(row)|| format.test(col))
-        {
-            throw "invalid input";
-        }
-                var arr = [];let userData = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
-
-                let user = JSON.parse(userData);
-                
-                alert( user.friends[1] ); // 1
-                // Creates all lines:
-                for (var i = 0; i < row; i++) {
-                    arr[i] = [];
-
-                    for (var j = 0; j < col; j++) {
-                        console.log("Enter the element")
-                        var element = readline.question("Enter the value:")
-                        arr[i][j] = element + "";
-                    }
+                for (var j = 0; j < col; j++) {
+                    var element = readline.question("Enter the value:");
+                    arr[i][j] = element;
                 }
-                console.log(arr.join())
-                //return true;
             }
-            catch(err)
-            {
-                console.log('invalid input');
-                
-                return err;
-            }
-            
-        
+            console.log(arr.join("\n"))
+            return true;
+        }
+        else {
+            console.log("Invalid input");
+        }
     },
     //---------------------Gambler Number----------------------------//
     gamble(times, stack, goal) {
        
-                var bets = 0;
-                var wins = 0;
+        var bets = 0;
+        var wins = 0;
 
-                for (var i = 0; i < times; i++) {
-                    var cash = stack;
-                    while (cash > 0 && cash < goal) {
-                        bets++;
-                        if (Math.random() > 0.5)
-                            cash++;
-                        else
-                            cash--;
-                    }
-                    if (cash == goal) {
-                        wins++;
-                    }
-                }
-                console.log((wins + " wins out of " + times));
+        for (var i = 0; i < times; i++) {
+            var cash = stack;
+            while (cash > 0 && cash < goal) {
+                bets++;
+                if (Math.random() > 0.5)
+                    cash++;
+                else
+                    cash--;
+            }
+            if (cash == goal) {
+                wins++;
+            }
+        }
+        console.log((wins + " wins out of " + times));
 
-                console.log("wins percentage is " + (wins / times) * 100);
+        console.log("wins percentage is " + (wins / times) * 100);
 
-                console.log("loss percentage is " + (times - wins) / times * 100);
+        console.log("loss percentage is " + (times - wins) / times * 100);
 
-                console.log("Total bets in " + times + " games :" + bets);
+        console.log("Total bets in " + times + " games :" + bets);
 
-                return wins;
-            
-      
+        return wins;
+    
+
+
+
     },
     //------------Triplet Number----------------------------------------------------//
     triplet(arr) {
-            const n = arr.length;
-                const sum = 0;
-                let count = 0
+        const n = arr.length;
+        const sum = 0;
+        let count = 0
 
-                for (let i = 0; i < n-2; i++) {
-                    for (let j = i + 1; j < n-1; j++) {
-                        for (let k = j + 1; k < n; k++) {
-                            if (arr[i] + arr[j] + arr[k] == sum) {
-                                count = count + 1;
-                                console.log("Triplet is: ", arr[i], arr[j], arr[k])
-                            }
-
-                        }
-
+        for (let i = 0; i < n - 2; i++) {
+            for (let j = i + 1; j < n - 1; j++) {
+                for (let k = j + 1; k < n; k++) {
+                    if (arr[i] + arr[j] + arr[k] == sum) {
+                        count = count + 1;
+                        console.log("Triplet is: ", arr[i], arr[j], arr[k])
                     }
+
                 }
-              return count;   
-             },
+
+            }
+        }
+        return count;
+    },
     //-------------------powerof2---------------------------------------------
     power(n) {
         try {
@@ -243,13 +230,13 @@ module.exports = {
                 //check number is integer or not
                 throw 'invalid input';//if number is not integer trough expctio
             } else {
-        var string = "Hi username ,how are you"
-        console.log(string.replace("username", name))
-    }
-} catch (error) {
-    console.log("invalid input,please enter the valid input")
-    return error
-}
+                var string = "Hi username ,how are you"
+                console.log(string.replace("username", name))
+            }
+        } catch (error) {
+            console.log("invalid input,please enter the valid input")
+            return error
+        }
 
     },
     //-------------------Tic tac toe----------------------------------------------------//
@@ -324,32 +311,32 @@ module.exports = {
                 throw "invalid input"
                 return false
             } else {
-        var arr = str.split("");
-        console.log(arr);
-        var arr1 = [];
-        const a = str.length;
-        for (var i = 0; i < arr.length; i++) {
-            var value = "";
-            for (var j = i; j < a; j++) {
-                value = value + arr[j];
-                var b = str.length - value.length;
-            }
-            if (arr1.length < arr.length) {
-                value = value + str.substring(0, b);
+                var arr = str.split("");
+                console.log(arr);
+                var arr1 = [];
+                const a = str.length;
+                for (var i = 0; i < arr.length; i++) {
+                    var value = "";
+                    for (var j = i; j < a; j++) {
+                        value = value + arr[j];
+                        var b = str.length - value.length;
+                    }
+                    if (arr1.length < arr.length) {
+                        value = value + str.substring(0, b);
 
-            }
-            if (!arr1.includes(value)) {
-                arr1.push(value);
+                    }
+                    if (!arr1.includes(value)) {
+                        arr1.push(value);
 
-            }
+                    }
 
+                }
+                console.log(arr1)
+            }
+        } catch (error) {
+            console.log("invalid input")
+            return error
         }
-        console.log(arr1)
-    }
-    } catch (error) {
-        console.log("invalid input")
-        return error
-    }
     },
     //---------------------------PRIME NUMBER-----------------------------------------
 
@@ -399,36 +386,37 @@ module.exports = {
     //------------------------Bubble Sort------------------------------------
 
     bubbleSort(a) {
-          do {
-                    var swapped = false;
-                    for (var i = 0; i < a.length - 1; i++) {
-                        if (a[i] > a[i + 1]) {
-                            var temp = a[i];
-                            a[i] = a[i + 1];
-                            a[i + 1] = temp;
-                            swapped = true;
-                        }
-                    }
-                } while (swapped);
-                console.log(a);
+
+        do {
+            var swapped = false;
+            for (var i = 0; i < a.length - 1; i++) {
+                if (a[i] > a[i + 1]) {
+                    var temp = a[i];
+                    a[i] = a[i + 1];
+                    a[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        } while (swapped);
+        console.log(a);
 
     },
     //-------------------------Binarysearch program----------------------------------------
     binarySearch(arr, x) {
         try {
-             let format = /[^a-zA-Z]/;//give format to given number
+            let format = /[^a-zA-Z]/;//give format to given number
 
-             if (format.test(x) || x === undefined || x === null) {
-                 //check number is integer or not
-                 throw 'invalid input';//if number is not integer trough expctio
-                 
-             } else {
+            if (format.test(x) || x === undefined || x === null) {
+                //check number is integer or not
+                throw 'invalid input';//if number is not integer trough expctio
+
+            } else {
 
                 let start = 0, end = arr.length - 1;
                 while (start <= end) {
                     let mid = Math.floor((start + end) / 2);
                     if (arr[mid] === x)
-                     return true;
+                        return true;
 
                     else if (arr[mid] < x)
                         start = mid + 1;
@@ -437,19 +425,20 @@ module.exports = {
                         end = mid - 1;
                 }
 
-                     return false;
-             }
-         }
-         catch (error) {
-             console.log("invalid input")
+                return false;
+            }
+        }
+        catch (error) {
+            console.log("invalid input")
 
-             return error
-         }
+            return error
+        }
 
     },
     //----------------------------InsrtionSort-----------------------------------------------
     insertionsort(arr) {
-      var n = arr.length;
+
+        var n = arr.length;
         for (var i = 1; i < n; ++i) {
             var key = arr[i];
             var j = i - 1;
@@ -461,8 +450,9 @@ module.exports = {
 
             }
             arr[j + 1] = key;
-           }
+        }
         return arr;
+
     },
     //-------------------------mergeSort-----------------------------
 
@@ -493,11 +483,11 @@ module.exports = {
     },
     //-------------------GuessNumber----------------------------------------------------------//
     guessnumber(num) {
-         try {
+        try {
             let format = /[^a-zA-Z]/;//give format to given number
 
-             if (format.test(num || num === undefined || num === null)) {
-                 //check number is integer or not
+            if (format.test(num || num === undefined || num === null)) {
+                //check number is integer or not
                 throw 'invalid input';//if number is not integer trough expctio
             } else {
 
@@ -518,21 +508,21 @@ module.exports = {
                 }
                 console.log("guess number is " + low);
             }
-         }
-         catch (error) {
+        }
+        catch (error) {
             return error;
-         }
+        }
 
     },
     //--------------------------Squreroot---------------------------------------------------------//
     sqrtNewton(c) {
         var t = c
         try {
-            let format = /[^0-9]/;//give format to given number
+            let format = /[^0-9]/;
 
             if (format.test(c || c === undefined || c === null)) {
-                //check number is integer or not
-                throw 'invalid input';//if number is not integer trough expctio
+
+                throw 'invalid input';
             } else {
 
                 var epsilon = 1e-15;
@@ -549,10 +539,24 @@ module.exports = {
     },
     //-------------------------Temperature---------------------------------------------------------
     tempcon(far, cel) {
-                var c = (far - 32) * 5 / 9;
-                console.log("celceeius converted temprature:" + c + "c")
-                var f = (cel * 5 / 9) + 32;
-                console.log("fahrenhite converted temperature is:" + f + "f")
+        var t = c
+        //  try {
+        //      let format = /[^0-9]/;
+
+        //      if (format.test(far)(cal || far,cal === undefined || far,cal === null)) {
+
+        //          throw 'invalid input'
+        //      } else {
+        var c = (far - 32) * 5 / 9;
+        console.log("celceeius converted temprature:" + c + "c")
+        var f = (cel * 5 / 9) + 32;
+        console.log("fahrenhite converted temperature is:" + f + "f")
+        //     }
+        //  }
+        //  catch (error) {
+        //     console.log('invalid input')
+        //      return error;
+        // }
     },
     //-------------------------VendingMachine-----------------------------------------------------
     vending(cash) {
@@ -560,8 +564,8 @@ module.exports = {
             let format = /[^0-9]/;//give format to given number
 
             if (format.test(cash || cash === undefined || cash === null)) {
-                //check number is integer or not
-                throw 'invalid input';//if number is not integer trough expctio
+
+                throw 'invalid input';
 
             } else {
 
