@@ -9,12 +9,10 @@
 * @version node v8.10.0 npm 3.5.2
 * @since date 14/11/19
 *****************************************************************************/const Utility=require('../utility/utility');
-function anagram()
-{
+
+
 console.log("enter the str1:")
 var string1=Utility.inputRead();
 console.log("enter the str2:")
 var string2=Utility.inputRead();
 Utility.anagram(string1, string2)
-}anagram()
-module.exports=anagram();

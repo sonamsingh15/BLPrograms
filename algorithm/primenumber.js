@@ -8,10 +8,8 @@
 * @since date 14/11/19
 *****************************************************************************/
 
-function prime(){
+
 const Utility=require('../utility/utility');
 console.log("Enter the number:");
 var num=Utility.inputRead();
 Utility.prime(num);
-}prime()
-module.exports=prime()

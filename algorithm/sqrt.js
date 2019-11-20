@@ -8,8 +8,7 @@
 * @version node v8.10.0 npm 3.5.2
 * @since date 15/11/19
 *****************************************************************************/
-function sqrtNewton()
-{
+
 const Utility=require('../utility/utility')
 
 console.log("Enter the number to find  sqrt:")
@@ -17,5 +16,3 @@ console.log("Enter the number to find  sqrt:")
 var c=Utility.inputRead();
 
 Utility.sqrtNewton(c)
-}sqrtNewton()
-module.exports=sqrtNewton()

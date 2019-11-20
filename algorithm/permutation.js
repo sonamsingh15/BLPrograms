@@ -7,11 +7,9 @@
 * @version node v8.10.0 npm 3.5.2
 * @since date 14/11/19
 *****************************************************************************/
-function permute(){
+
 const Utility=require('../utility/utility');
 console.log("Enter the string for permutation")
 var string=Utility.inputRead();
 var len=string.length;
 Utility.permute(string,0,len-1);
-}permute()
-module.exports=permute()

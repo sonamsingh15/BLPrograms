@@ -146,7 +146,7 @@ module.exports = {
     },
     //---------------------Gambler Number----------------------------//
     gamble(times, stack, goal) {
-       
+
         var bets = 0;
         var wins = 0;
 
@@ -172,7 +172,7 @@ module.exports = {
         console.log("Total bets in " + times + " games :" + bets);
 
         return wins;
-    
+
 
 
 
@@ -539,7 +539,7 @@ module.exports = {
     },
     //-------------------------Temperature---------------------------------------------------------
     tempcon(far, cel) {
-        var t = c
+        
         //  try {
         //      let format = /[^0-9]/;
 
@@ -547,6 +547,7 @@ module.exports = {
 
         //          throw 'invalid input'
         //      } else {
+            var t=c
         var c = (far - 32) * 5 / 9;
         console.log("celceeius converted temprature:" + c + "c")
         var f = (cel * 5 / 9) + 32;
@@ -570,19 +571,17 @@ module.exports = {
             } else {
 
                 var a = ["1 ", "2 ", "5", "10 ", "20 ", "50 ", "100 ", "200 ", "500 ", "1000 ", "2000 "]
-                var len = a.length;
-                var count = 0;
-                var v = [];
-                for (var i = len - 1; i >= 0; i--) {
-                    while (cash >= a[i]) {
-                        cash -= a[i]
-                        v = v + (a[i])
-                        count++;
-                    }
 
+                for (i = a.length - 1; i >= 0; i--) {
+                    var note = 0;
+                    while (cash >= a[i]) {
+                        cash = cash - a[i];
+                        note = note + 1;
+                    }
+                    if (note > 0) {
+                        console.log(a[i] + "number of notes" + note)
+                    }
                 }
-                console.log("minimun cash:" + count);
-                console.log(v);
             }
         }
         catch (error) {

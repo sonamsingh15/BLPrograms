@@ -9,11 +9,8 @@
 * @since date 14/11/19
 *****************************************************************************/
 
-function leapYear()
-{
+
 const Utility=require('../utility/utility');
 console.log("enter year")
 var year =Utility.inputRead()
 Utility.leapYear(year);
-}leapYear();
-module.export=leapYear();
