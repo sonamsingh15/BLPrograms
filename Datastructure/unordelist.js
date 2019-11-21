@@ -1,7 +1,17 @@
+/*****************************************************************************
+*Execution : 1. default node cmd> node anagram.js
+* Purpose:  Determine wheather a string is simillar or not first check length of string,after check 
+            lowercase and uppercase condition .
+* @file : anagram.js
+* @overview : To check string is anagram or not.
+* @author SONAM SINGH
+* @version node v8.10.0 npm 3.5.2
+* @since date 14/11/19
+*****************************************************************************/
 const Utility = require('../utility/linklist');
 
 var list =new Utility.LinkedList;
-var inputfromFileArray = Utility.readFromFile('inputFile.text')
+var inputfromFileArray = Utility.readFromFile('fileName.txt')
 for (var i=0; i<inputfromFileArray.length;i++)
 {
     list.addNode(inputfromFileArray[i]);

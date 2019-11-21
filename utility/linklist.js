@@ -12,6 +12,7 @@ class Node {
 class LinkedList {
     constructor() {
         this.head = null;
+        this.size = 0;
 
     }
 
@@ -248,9 +249,9 @@ module.exports = {
     *@param filename passing the file name
     *@returns retrived  data converted into array 
     **/
-    readFromFile() {
-        var fis = require("fs");
-        var fileObject = fis.readFileSync('fileName.txt', 'utf8')
+    readFromFile(fileName) {
+        var fs = require("fs");
+        var fileObject = fs.readFileSync(fileName, 'utf8')
         var fileArray = fileObject.trim().split(' ');
         return fileArray;
 
