@@ -15,8 +15,13 @@ class LinkedList {
         this.size = 0;
 
     }
+    /**
+    *@description:add function is using to add element in list to store the current node 
+    *@param :passing element in list 
+    *@returns  size
+    **/
 
-    addNode(data) //use in unorderlist
+    add(data) 
     {
         // creates a new node 
         var node = new Node(data);
@@ -42,6 +47,11 @@ class LinkedList {
         }
         this.size++;
     }
+    /**
+    *@description:read input 
+    *@param filename passing the file name
+    *@returns retrived  data converted into array 
+    **/
     insertAt(data, index) {
         if (index > 0 && index > this.size)
             return false;
@@ -76,6 +86,11 @@ class LinkedList {
             this.size++;
         }
     }
+    /**
+    *@description:read input 
+    *@param filename passing the file name
+    *@returns retrived  data converted into array 
+    **/
     // removes an element from the 
     // specified location 
     removeFrom(index) {
@@ -107,6 +122,12 @@ class LinkedList {
             return curr.element;
         }
     }
+    /**
+    *@description:remove function is remove data,comapring element with current element if found
+                  then remove  
+    *@param :passing the data thats you pass.
+    *@returns retrurn true then remove  
+    **/
     remove(data) //----use in unorderlist
     {
         var current = this.head;
@@ -131,27 +152,31 @@ class LinkedList {
         }
         return -1;
     }
+    /**
+    *@description:function indexod,use to comapare each element of list with given element 
+    *@param filename passing the data
+    *@returns retrurn -1
+    **/
 
     // finds the index of element 
     indexOf(data) {
         var count = 0;
         var current = this.head;
-
-        // iterae over the list 
         while (current != null) {
-            // compare each element of the list 
-            // with given element 
             if (current.data === data)
                 return count;
             count++;
             current = current.next;
         }
-
-        // not found 
         return -1;
     }
-    // search element for file
-    search(searchkey) {       //--------------use in unorder list
+    /**
+    *@description:search function to search the element in the given list
+    *@param filename passing the list size
+    *@returns retrurn the search element  
+    **/
+    
+    search(searchkey) {      
         var temp = this.head;
         while (temp != null) {
             if (temp.data === searchkey) {
@@ -161,6 +186,11 @@ class LinkedList {
         }
         return false
     }//---method for sorting linked list in acending order
+     /**
+    *@description:sortlinklist function for sorting linked in acending order
+    *@param filename passiing the currentnode,nextnode,
+    *@returns return the sort list 
+    **/
     sortLinkedList() {
         var currentNode = this.head, nextNode = null;
         var temp;
@@ -169,15 +199,12 @@ class LinkedList {
             return;
         } else {
             // loop until  current node is null
-            while (currentNode != null) 
-            {
+            while (currentNode != null) {
                 nextNode = currentNode.next;
-                while (nextNode != null)
-                 {
+                while (nextNode != null) {
 
                     //comparing the current and next node 
-                    if (currentNode.data > nextNode.data)
-                     {
+                    if (currentNode.data > nextNode.data) {
 
                         //curent node is greater than next node 
                         // then swapping both node
@@ -193,17 +220,20 @@ class LinkedList {
 
         }
     }
+     /**
+    *@description:addinsortway function for inserting new node in sorted way 
+    *@param filename passing the data tha wants to addinsortway
+    *@returns retrurn 
+    **/
     //----method for inserting new node in sorted way
     addInSortWay(data) {
         var newNode = new Node(data)
         var currentNode = this.head;
 
-        if (this.head == null || currentNode.data >= newNode.data) 
-        {
+        if (this.head == null || currentNode.data >= newNode.data) {
             newNode.next = this.head;
             this.head = newNode;
-        } else
-         {
+        } else {
             while (currentNode.next != null && currentNode.next.data < newNode.data) {
                 currentNode = currentNode.next;
             }
@@ -216,17 +246,30 @@ class LinkedList {
             }
         }
     }
-
-    // checks the list for empty 
+     /**
+    *@description:isempty function is check the list for empty 
+    *@param filename passing the file name
+    *@returns retrived  size 
+    **/
     isEmpty() {
         return this.size == 0;
     }
 
-    // gives the size of the list 
+    // gives the size of the list
+     /**
+    *@description:size function is gives the size of the list
+    *@param filename passing the file name
+    *@returns retrurn the size of data
+    **/ 
     size_of_list() {
         console.log(this.size);
     }
-    printList() {
+     /**
+    *@description:display funtion to print 
+    *@param filename :no parameter 
+    *@returns retrurn output
+    **/
+    display() {
         var current = this.head;
         var string = "";
         while (current) {
@@ -263,5 +306,59 @@ module.exports = {
     writeIntoFile(fileName, content) {
         var fs = require('fs');
         fs.writeFileSync(fileName, content, 'utf8')
+    },
+    //------------hashing----------------------------------------
+     /**
+    *@description: hashing function 
+    *@param filename passing the numberarray
+    *@returns retrived  d
+    **/
+    Hashing(numberarray) {
+        let Linkedlist =require('..utility/linklist')
+        let readline = require("readline-sync")
+        var arr = []
+        for (let i = 0; i <numberarray.length; i++) {
+            let hash = numberarray[i] % 11;
+            if (arr[hash] == undefined) {
+                arr[hash] = new LinkedList.LinkedList();
+                arr[hash].add(numberarray[i]);
+            } else {
+                if (!arr[hash].search(numberarray[i])) {
+                    arr[hash].add(numberarray[i]);
+                }
+            }
+            for (let j = 0; j < 11; j++) {
+                console.log("element at" + j + " ");
+                if (arr[j] != undefined) {
+                    arr[j] =display();
+                }
+            }
+            let input = parseInt(readline.question("Enter number you want to search"))
+            if (isNaN(input)) {
+                throw "enter the valid number"
+            }
+            if (arr[input % 11] != undefined) {
+                if (arr[input % 11].search(input)) {
+                    arr[input % 11].remove(input)
+                    console.log("element removed")
+                } else {
+                    arr[input % 11].add(input)
+                    console.log("element aaded")
+                }
+
+            }
+            else {
+                arr[input % 11] = new this.LinkedList();
+                arr[input % 11].add(input)
+                console.log("element aaded")
+            }
+            for (let j = 0; j < 11; j++) {
+                console.log("element at" + j + " ");
+                if (arr[j] != undefined) {
+                    arr[j].display()
+                }
+            }
+
+        }
     }
 }

@@ -590,5 +590,21 @@ module.exports = {
         }
     },
     //-------------------------*********************************-----------------------------------------
+/**
+				 * @param d       User give Day
+				 * @param m       User give Month
+				 * @param y       User give  Year
+				 * @return        return final output current day
+				 */
+				 dayofweek( d, m, y)
+				{
+					var y1=y-(14-m)/12;
+					var x=y1+y1/4-y1/100+y1/400;
+					var m1=m+12*((14-m)/12)-2;
+					var d1=(d+x+31*m1/12)%7;
 
+					
+					return d1;
+				}
+				
 }
