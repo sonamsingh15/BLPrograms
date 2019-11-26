@@ -1,27 +1,19 @@
-/*****************************************************************************
+/**********************************************************************************************
 *Execution : 1. default node cmd> node anagram.js
-* Purpose:  
+* Purpose:  Read .a List of Numbers from a file and arrange it ascending Order in a
+           Linked List. Take user input for a number, if found then pop the number out of the
+           list else insert the number in appropriate position
 * @file : orderlist.js
-* @overview : 
+* @overview :  Read from file the list of Numbers and take user input for a new number
 * @author SONAM SINGH
 * @version node v8.10.0 npm 3.5.2
 * @since date 18/11/19
-*****************************************************************************/
+************************************************************************************************/
 const Utility = require('../utility/linklist');
 
 var list = new Utility.LinkedList;
 var numberfromFileArray = Utility.readFromFile('file123.txt')
-try {
-    
-    let format = /[^0-9]/;//give format to given number
-
-    if (format.test(numberfromFileArray || numberfromFileArray === undefined || numberfromFileArray === null)) 
-    {
-        //check number is integer or not
-        throw 'invalid input';//if number is not integer trough expctio
-    } 
-    else 
-    {
+var userinput = Utility.readLine().question("Enter the number that you want to search:")
 
         for (var i = 0; i < numberfromFileArray.length; i++)
         {
@@ -46,9 +38,4 @@ try {
         console.log(content)
 
         Utility.writeIntoFile('file123.txt', content, 'utf8')
-    }
-}
-catch (error)
-{
-    console.log(error);
-}
+    

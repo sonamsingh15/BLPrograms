@@ -140,62 +140,31 @@ module.exports = {
     *@returns retrived  data converted into array 
     **/
     //------------
-    storeIn2DArray(prime, primeArray) {
-        var range = 100, i = 0, j = 1;
-        for (let p = 0; p < prime.length; p++) {
-            if (prime[p] < range) {
-                primeArray[i][j] = prime[p];
-                j++;
+    
+
+    //----------------------
+    primeRange(start1, end) {
+        var array = []; var k = 0; 
+        var flag = 0
+        for (i = start1; i <= end; i++) {
+            for (j = 2; j <= i / 2; j++) {
+              if (i % j == 0) {
+                  if(i==2||i==3)
+                  con
+                 flag = 0
+                    
+                    break
+                } else {
+                    flag = 1
+                }
             }
-            else {
-                i = i + 1;
-                j = 1;
-                range = range + 100;
-                primeArray[i][j] = prime[p];
+        
+            if (flag == 1) {
+                array[k++] = i
             }
+
         }
-        return primeArray;
+        return array;
     },
- primearray()
-{
-	 array = [10][100];  //for storing 1000 elements
-	prime = [10][100]; //for stroring 1000 prime numbers
-	var z = 1;
-	for (var i = 0; i < 10; i++)     
-	{
-		
-		for (var j = 0; j < 100; j++) 
-		{
-			array[i][j] = z;
-			z++;
-		}
-	}
-	for (var i = 0; i < 10; i++) {
-		for (var j = 0; j < 100; j++)
-		{
-			if (this.checkPrime(array[i][j])) //prime number array
-			{
-				prime[i][j] = array[i][j];
-			} else 
-			{
-				prime[i][j] = -1;
-			}
-		}
-	}
-	for (var i = 0; i < 10; i++) 
-	{
-		for (var j = 0; j < 100; j++) 
-		{
-			if (prime[i][j] != -1)
-				console.log(prime[i][j] + " ");
-		}
-		console.log();
-	}
-
-},
-//ublic static void calender(int month, int year)  //passed parameters are 
-
-//----------------------
-
 }
 

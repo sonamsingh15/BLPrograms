@@ -278,6 +278,14 @@ class LinkedList {
         }
         return string;
     }
+
+    print() {
+        var current = this.head;
+        while (current) {
+            process.stdout.write( current.data + "->");
+            current = current.next;
+        }
+    }
 }
 module.exports = {
 
@@ -286,6 +294,10 @@ module.exports = {
         var resd = require('readline-sync');
         return resd;
     },
+    // inputRead() {
+    //     let input = readLine.question("");//get the value from user
+    //     return input;
+    // },
 
     /**
     *@description:read input 
@@ -309,56 +321,63 @@ module.exports = {
     },
     //------------hashing----------------------------------------
      /**
-    *@description: hashing function 
+    *@description: hashing function Logic ­> Firstly store the numbers in the Slot. Since there are 10 Numbers divide
+           each number by 11 and the reminder put in the appropriate slot. Create a Chain
+          for each Slot to avoid Collision. If a number searched is found then pop it or else
+         push it. Use Map of Slot Numbers and Ordered LinkedList to solve the problem.
+          In the Figure Below, you can see number 77/11 reminder is 0 hence
     *@param filename passing the numberarray
     *@returns retrived  d
     **/
     Hashing(numberarray) {
-        let Linkedlist =require('..utility/linklist')
+        //let Linkedlist =require('../utility/linklist')
         let readline = require("readline-sync")
         var arr = []
         for (let i = 0; i <numberarray.length; i++) {
             let hash = numberarray[i] % 11;
             if (arr[hash] == undefined) {
-                arr[hash] = new LinkedList.LinkedList();
+                arr[hash] = new LinkedList();
                 arr[hash].add(numberarray[i]);
             } else {
-                if (!arr[hash].search(numberarray[i])) {
+                //if (!arr[hash].search(numberarray[i])) {
                     arr[hash].add(numberarray[i]);
-                }
+                //}
             }
-            for (let j = 0; j < 11; j++) {
-                console.log("element at" + j + " ");
-                if (arr[j] != undefined) {
-                    arr[j] =display();
-                }
+            
+        }
+        for (let j = 0; j < 11; j++) {
+            process.stdout.write("element at" + j + " ");
+            if (arr[j] != undefined) {
+                arr[j].print();
             }
-            let input = parseInt(readline.question("Enter number you want to search"))
-            if (isNaN(input)) {
-                throw "enter the valid number"
-            }
-            if (arr[input % 11] != undefined) {
-                if (arr[input % 11].search(input)) {
-                    arr[input % 11].remove(input)
-                    console.log("element removed")
-                } else {
-                    arr[input % 11].add(input)
-                    console.log("element aaded")
-                }
-
-            }
-            else {
-                arr[input % 11] = new this.LinkedList();
-                arr[input % 11].add(input)
+            console.log();
+        }
+        let input = parseInt(readline.question("Enter number you want to search"))
+        if (isNaN(input)) {
+            throw "enter the valid number"
+        }
+        hash = input %11;
+        if (arr[hash] != undefined) {
+            if (arr[hash].search(input)) {
+                arr[hash].remove(input)
+                console.log("element removed")
+            } else {
+                arr[hash].add(input)
                 console.log("element aaded")
             }
-            for (let j = 0; j < 11; j++) {
-                console.log("element at" + j + " ");
-                if (arr[j] != undefined) {
-                    arr[j].display()
-                }
-            }
 
+        }
+        else {
+            arr[hash] = new this.LinkedList();
+            arr[hash].add(input)
+            console.log("element aaded")
+        }
+        for (let j = 0; j < 11; j++) {
+            process.stdout.write("element at" + j + " ");
+            if (arr[j] != undefined) {
+                arr[j].print();
+            }
+            console.log();
         }
     }
 }

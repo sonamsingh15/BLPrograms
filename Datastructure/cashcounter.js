@@ -1,8 +1,15 @@
 /*****************************************************************************
 *Execution : 1. default node cmd> node cashcounter.js
-* Purpose: 
+
+* Purpose:  Create a Program which creates Banking Cash Counter where people
+  come in to deposit Cash and withdraw Cash. Have an input panel to add people
+  to Queue to either deposit or withdraw money and dequeue the people. Maintain
+  the Cash Balance.
+* Logic ­> Write a Queue Class to enqueue and dequeue people to either deposit
+ or withdraw money and maintain the cash balance
+
 * @file : cashcounter.js
-* @overview : 
+* @overview : True or False to Show Arithmetic Expression is balance
 * @author SONAM SINGH
 * @version node v8.10.0 npm 3.5.2
 * @since date 18/11/19

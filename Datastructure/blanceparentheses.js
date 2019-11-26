@@ -1,12 +1,17 @@
-/*****************************************************************************
+/**********************************************************************************************
 *Execution : 1. default node cmd> node blancedparenthese.js
-* Purpose: 
+
+* Purpose: Take an Arithmetic Expression such as(5+6)∗(7+8)/(4+3)(5+6)∗(7+8)/(4+3)
+           where parentheses are used to order the performance of operations. Ensure 
+           parentheses must appear in a balanced fashion.
+
 * @file : blancedparenthese.js
-* @overview : 
+* @overview : Write a Stack Class to push open parenthesis “(“ and pop closed
+        parenthesis “)”. At the End of the Expression if the Stack is Empty then the
 * @author SONAM SINGH
 * @version node v8.10.0 npm 3.5.2
 * @since date 19/11/19
-*****************************************************************************/
+***********************************************************************************************/
 const Utility = require('../utility/stack');
 
 var st = new Utility.Stack;

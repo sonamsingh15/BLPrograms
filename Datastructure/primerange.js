@@ -1,18 +1,35 @@
+ /*****************************************************************************
+*Execution : 1. default node cmd> node calender.js
+* Purpose: Take a range of 0 ­ 1000 Numbers and find the Prime numbers in that range. Store
+           the prime numbers in a 2D Array, the first dimension represents the range ,
+            While the second dimension represents the prime numbers in
+* @file : calender.js
+* @overview : To check number  is prime or not.
+* @author SONAM SINGH
+* @version node v8.10.0 npm 3.5.2
+* @since date 14/11/19
+*****************************************************************************/
  const Utility=require('../utility/datastructure');
 
-var k=0;
-var primeArray = [['000-100 '],['100-200 '],['200-300 '],['300-400 '],['400-500 '],['500-600 '],['600-700 '],['700-800 '],['800-900 '],['900-1000']];
-var prime = new Array();
-for(var i=0;i<1000;i++){
-if(Utility. checkPrime(i)){
-Utility.checkPrime[k++] = i;
-}
+var primenumbers = []
+var startrange=0;
+ var endrange = 100;
+
+
+var i = 0
+while(i < 10){ //number of rows
+primenumbers[i] = Utility.primeRange(startrange, endrange) //function to calculate prime numbers for a range
+startrange = startrange + 100
+endrange = endrange + 100
+i++
 }
 
-var finalArray=Utility.storeIn2DArray(prime,primeArray)
-for(var i=0;i<finalArray.length;i++){
-for(var j=0;j<finalArray[i].length;j++){
-process.stdout.write(finalArray[i][j]+' ');
-}
+
+//display
+start = 0; end = 100
+for (i = 0; i < 10; i++) {
+console.log("[ "  + start+ "-" + end + " ]" + "[" + "[" +primenumbers[i] + "]" + " ]"); //printing prime numbers according to its range
+start +=100;
+end += 100
 console.log();
 }

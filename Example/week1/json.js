@@ -73,7 +73,7 @@ let userData = '{ "name": "John", "age": 35, "isAdmin": false, "friends": [0,1,2
 let user3 = JSON.parse(userData);
 
 console.log( user3.friends[2] ); // 1
-  
+  //---------------------------------------
 
 
 
