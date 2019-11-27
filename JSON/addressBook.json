@@ -1,0 +1,18 @@
+{
+    "person": [
+        {
+            "firstName": "mahi",
+            "lastName": "joshi",
+            "address": "nagpur",
+            "ID": "678954",
+            "zipCode": "410089"
+        },
+        {
+            "firstName": "sonam",
+            "lastName": "singh",
+            "address": "pune",
+            "ID": "448988",
+            "zipCode": "417789"
+        }
+    ]
+}
