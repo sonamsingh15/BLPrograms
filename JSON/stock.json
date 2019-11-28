@@ -1,0 +1,19 @@
+{
+    "stock":[
+    {
+        "NameOfCompany":"airtel",
+        "NoOfShare":"200",
+        "Price":400
+    },
+    {
+        "NameOfCompany":"microsoft",
+        "NoOfShare":"300",
+        "Price":500
+    },
+    {
+        "NameOfCompany":"jio",
+        "NoOfShare":"100",
+        "Price":300
+    }
+    ]
+}

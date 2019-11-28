@@ -41,20 +41,24 @@ const fs = require('fs');
     } 
 
  }
- class Invent extends Inventory{
-    InventoryData(){
-        console.log("Inventory Details: \n1.Rice \n2.pluse \n3.wheat");
+ class Invent extends Inventory
+ {
+    InventoryData()
+    {
+        console.log("Inventory Details: \n1.Rice \n2.pulse \n3.wheat");
         var ch =r1.questionInt('enter your choice:');
         if(isNaN(ch)) throw 'Enter the valid choice.'
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 
                 var kg=r1.questionInt("how many kg you require::")
                 console.log("--------Rice Detail-----------------------------------------------")
-                for(var i=0; i<this.Inventory.Rice.length;i++){
+                for(var i=0; i<this.Inventory.Rice.length;i++)
+                {
                     console.log();
-                    console.log("\tRise:" +this.Inventory.Rice[i].name+"\n\tprice:"+this.Inventory.Rice[i].price+"\n\tweight:"+kg+"kg price is "+kg* this.Inventory.Rice[i].price);
+                    console.log("\n\tname:" +this.Inventory.Rice[i].name+"\n\tprice:"+this.Inventory.Rice[i].price+"\n\tweight:"+kg+"kg price is "+kg* this.Inventory.Rice[i].price);
                     }
                     break;
                     case 2:
@@ -62,7 +66,7 @@ const fs = require('fs');
                         console.log("----------------pulse Detai---------------------------------")
                         for(var i=0; i<this.Inventory.Pulse.length; i++){
                         console.log()
-                        console.log("\tRise:" +this.Inventory.Pulse[i].name+"\n\tprice:"+this.Inventory.Pulse[i].price+"\n\tweight:"+kg+"kg price is"+kg*this.Inventory.Pulse[i].price)
+                        console.log("\n\tname:" +this.Inventory.Pulse[i].name+"\n\tprice:"+this.Inventory.Pulse[i].price+"\n\tweight:"+kg+"kg price is"+kg*this.Inventory.Pulse[i].price)
                         }
                     break;
                     case 3:    
@@ -70,7 +74,7 @@ const fs = require('fs');
                     console.log("----------------pulse Detail----------------------------------------------")
                     for(var i=0; i<this.Inventory.Wheat.length; i++){
                     console.log()
-                    console.log("\tRise:" +this.Inventory.Wheat[i].name+"\n\tprice:"+this.Inventory.Wheat[i].price+"\n\tweight:"+kg+"kg price is"+kg* this.Inventory.Wheat[i].price)
+                    console.log("\n\tname:" +this.Inventory.Wheat[i].name+"\n\tprice:"+this.Inventory.Wheat[i].price+"\n\tweight:"+kg+"kg price is"+kg* this.Inventory.Wheat[i].price)
                     }
                     break;
         }
@@ -78,3 +82,6 @@ const fs = require('fs');
 }
 var inv=new Invent()
 inv.InventoryData();
+module.exports={
+    Inventory
+}

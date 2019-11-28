@@ -4,13 +4,17 @@ module.exports=
 {
     readFile(path)
     {
-     var content=fs.readFileSync(path);
+     var fs=require('fs')   
+     var content=fs.readFileSync(path,JSON.parse(path),'utf8');
      return content;
     },
     writeFile(path,data)
     {
-     fs.writeFileSync(path,data,'utf8');
+    var fs =require('fs')
+    var content=fs.writeFileSync(path,data,'utf8');
+    return content;
     },
+   
     inputStringRead()
     {
         try

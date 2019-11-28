@@ -78,7 +78,7 @@ addPerson() {
     ID: ID1,
     zipCode: zipCode1
     })
-    Utility.writeFile('addressBook.json', JSON.stringify(this.data));
+    Utility.writeFile('addressBook.json', JSON.stringify(this.data),'utf8');
     this.addressBook();
     }
     
@@ -101,7 +101,7 @@ addPerson() {
         }
         
         //Edit information of the person
-        EditPerson() {
+    EditPerson() {
         
         var firstName = rl.question("Enter person's first name to edit info:");
         var index;
@@ -136,7 +136,7 @@ addPerson() {
     }
     display(){
     for(let i=0;i<this.data.person.length;i++){
-    console.log("\nFirst Name:"+this.data.person[i].firstName);
+    console.log("First Name:"+this.data.person[i].firstName);
     console.log("Last Name:"+this.data.person[i].lastName);
     console.log("Address:"+this.data.person[i].address);
     console.log("Id:"+this.data.person[i].ID);
@@ -145,7 +145,8 @@ addPerson() {
     }
     }
     //Sort by name
-    sortByName() {
+     sortByName() 
+     {
     
     for (let i = 0; i < this.data.person.length; i++) {
     for (let j = 0; j < this.data.person.length - 1; j++) {
@@ -158,15 +159,17 @@ addPerson() {
     }
     }
     }
+    
     console.log(this.data);
     fs.writeFileSync('addressBook.json', JSON.stringify(this.data));
     this.addressBook();
-    }
+     }
     
     //sorting function to arrange by zip code
     //sorting function to arrange by zip code
     sortByZip() {
-        if(isNaN(ch)) throw 'Enter the valid choice.'
+        
+        if(isNaN()) throw 'Enter the valid choice.'
 
     
     for (let i = 0; i < this.data.person.length; i++) {
