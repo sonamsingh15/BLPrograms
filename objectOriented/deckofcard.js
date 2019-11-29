@@ -32,7 +32,7 @@ class Deckcards{
         console.log("Distributing 9 cards tp players")
         var k =0;
         for(let i=1;i<=4; i++){
-            console.log('\nplayer Number'+i+ "have cards:");
+            console.log('\nplayer Number-----'+i+ "-----have cards:");
             for(let j=0;j<9; j++){
                 var arr = "";
                 console.log(queue.dequeue())

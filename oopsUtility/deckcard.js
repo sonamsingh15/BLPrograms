@@ -3,40 +3,57 @@ class Deckcard {
 
         var suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
         var values = ['jack', 'Queen', 'king', 'Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10,]
-        var n = values.length * suits.length
+        var cards=[],shuffle,noOfCards
+       
 
-        //create nwe array
-        var array = new Array(n)
-        for (var i = 0; i < values.length; i++) {
-            for (var j = 0; j < suits.length; j++) {
-                array[suits.length *i + j] = values[i] + suits[j]
+        for (var i = 0; i < suits.length; i++) {
+            for (var j = 0; j < values.length; j++) {
+
+                cards.push(suits.length [i]+" "+values[j])
             }
         }
-        return array
-    }
-
-    shuffleCard(n, array) {
-        for (var i = 0; i < n; i++) {
-            var r = i + parseInt(Math.random() * (n -i))
-            var temp = array[r]
-            array[r] = array[i]
-            array[i] = temp
+          for (var i = 0; i < n; i++) {
+            var shuffle = Math.floor(Math.random() * (n ))
+            var temp = cards[shuffle]
+            cards[shuffle] = cards[i]
+            cards[i] = temp
         }
-        return array;
+        return cards;
     }
-    distrubutesCard(players, cards, shufflArray) {
-        var k = 0;
-        var arr = new Array();
-        for (var i = 0; i < players; i++) {
-            arr[i] = new Array();
-
-            for (var j = 0; j < cards / players; j++) {
-                arr[i][j] = shufflArray[k++]
+    distrubutesCard(players, cards) {
+        var players=[[],[],[],[]]
+        var cards = this.deckofcard;
+        var cardsperUser = 0;
+        for (var i = 0; i < 4; i++) {
+            
+            for (var j = 0; j < 9; j++) {
+                players[i][j] = cards[j+cardsperUser]
             }
         }
-        return arr
+        cardsperUser=Math.floor(Math.random()*(cards.length-1))
+        
     }
+
 }
+
+
+console.log("----------cards recive by 4players------------------------")
+console.log("\nPlayer1 : ",players[0].join());
+console.log("\nPlayer2 : ",players[0].join());
+console.log("\nPlayer3 : ",players[0].join());
+console.log("\nPlayer4 : ",players[0].join());
+
+
+
+
+
 module.exports = {
     Deckcard
 }
+   
+
+  
+
+
+
+

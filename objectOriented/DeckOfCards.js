@@ -24,14 +24,16 @@ class DeckOfCards{
     console.log(noOfCards)
 
     //shuffle cards
-    var ShuffleCards = deck.shuffleCard(noOfCards ,cards)
+    //var ShuffleCards = deck.shuffleCard(noOfCards ,cards)
    // console.log(ShuffleCards)
 
-    var Players=r1.questionInt("Enter the number of players::")
-    var cards =r1.questionInt("Enter the number of card distribute::")
+   // var Players=r1.questionInt("Enter the number of players::")
+   // var cards =r1.questionInt("Enter the number of card distribute::")
     var distribute= deck. distrubutesCard(Players,cards,ShuffleCards);
     console.log(distribute)
     }
+   
 }
+    
 var play= new DeckOfCards()
-play.game();
+play.game()
